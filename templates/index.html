@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Password Strength Checker</title>
+</head>
+<body>
+    <h1>Password Strength Checker</h1>
+    <form method="POST">
+        <input type="password" name="password" placeholder="Enter password" required>
+        <button type="submit">Check</button>
+    </form>
+
+    {% if feedback %}
+        <h2>Strength: {{ feedback }}</h2>
+        <ul>
+            <li>At least 8 characters: {{ "✅" if strength_details.length else "❌" }}</li>
+            <li>Uppercase letter: {{ "✅" if strength_details.uppercase else "❌" }}</li>
+            <li>Lowercase letter: {{ "✅" if strength_details.lowercase else "❌" }}</li>
+            <li>Number: {{ "✅" if strength_details.number else "❌" }}</li>
+            <li>Special character: {{ "✅" if strength_details.special else "❌" }}</li>
+        </ul>
+    {% endif %}
+</body>
+</html>
